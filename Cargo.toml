@@ -1,0 +1,26 @@
+[package]
+name = "rsx-shared"
+version = "0.1.0"
+authors = ["Victor Porof <victor.porof@gmail.com>"]
+
+[lib]
+name = "rsx_shared"
+
+[features]
+default = ["impl-blanket", "impl-dummy", "impl-external-webrender", "impl-external-image", "impl-external-yoga"]
+impl-blanket = []
+impl-dummy = []
+impl-external-webrender = ["webrender"]
+impl-external-image = ["image"]
+impl-external-yoga = ["yoga"]
+
+[dependencies]
+enum-primitive-derive = "0.1.2"
+image = { version = "0.18.0", optional = true }
+num-traits = "0.1.2"
+self-tokenize-macro = { git = "https://github.com/victorporof/rust-self-tokenize.git" }
+self-tokenize-trait = { git = "https://github.com/victorporof/rust-self-tokenize.git" }
+serde = "1.0.27"
+serde_derive = "1.0.27"
+webrender = { git = "https://github.com/victorporof/webrender.git", branch = "rsx-ready-latest", optional = true }
+yoga = { git = "https://github.com/victorporof/yoga-rs.git", branch = "self-tokenize", optional = true }
